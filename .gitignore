@@ -1,0 +1,7 @@
+.DS_Store
+.dart-tool/
+.dartServer/
+.flutter
+.pub-cache/
+.xdg_config/
+flutter/
