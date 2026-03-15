@@ -1,0 +1,17 @@
+[build]
+  base = "/"
+  command = """
+    cd /opt/build/repo/app && \
+    /opt/buildhome/.asdf/shims/flutter build web --release \
+      --pwa-strategy=none \
+      --dart-define=SUPABASE_URL=$SUPABASE_URL \
+      --dart-define=SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY \
+      --dart-define=OPENWEATHER_API_KEY=$OPENWEATHER_API_KEY \
+      --dart-define=OPENAI_API_KEY=$OPENAI_API_KEY
+  """
+  publish = "app/build/web"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

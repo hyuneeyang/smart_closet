@@ -1,0 +1,11 @@
+name: MethodTestObjCLibrary
+description: 'Tests calling Objective-C methods'
+language: objc
+output: 'method_bindings.dart'
+exclude-all-by-default: true
+objc-interfaces:
+  include:
+    - MethodInterface
+headers:
+  entry-points:
+    - 'method_test.m'

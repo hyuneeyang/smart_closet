@@ -1,0 +1,5 @@
+echo start task 1
+touch file_1
+ls file_1
+rm file_1
+echo done task 1

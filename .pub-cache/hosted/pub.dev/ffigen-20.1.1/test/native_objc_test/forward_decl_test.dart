@@ -1,0 +1,36 @@
+// Copyright (c) 2022, the Dart project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// Objective C support is only available on mac.
+@TestOn('mac-os')
+import 'dart:ffi';
+import 'dart:io';
+
+import 'package:path/path.dart' as path;
+import 'package:test/test.dart';
+import '../test_utils.dart';
+import 'forward_decl_bindings.dart';
+import 'util.dart';
+
+void main() {
+  group('forward decl', () {
+    setUpAll(() {
+      final dylib = File(
+        path.join(
+          packagePathForTests,
+          'test',
+          'native_objc_test',
+          'objc_test.dylib',
+        ),
+      );
+      verifySetupFile(dylib);
+      DynamicLibrary.open(dylib.absolute.path);
+      generateBindingsForCoverage('forward_decl');
+    });
+
+    test('Forward declared class', () {
+      expect(ForwardDeclaredClass.get123(), 123);
+    });
+  });
+}

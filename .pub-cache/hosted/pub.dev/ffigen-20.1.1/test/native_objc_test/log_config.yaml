@@ -1,0 +1,12 @@
+name: LogTestObjCLibrary
+description: 'Tests logged errors'
+language: objc
+output: 'log_bindings.dart'
+exclude-all-by-default: true
+objc-interfaces:
+  include:
+    - LogSpamBaseClass
+    - LogSpamChildClass
+headers:
+  entry-points:
+    - 'log_test.m'

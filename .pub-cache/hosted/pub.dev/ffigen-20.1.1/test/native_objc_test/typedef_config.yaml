@@ -1,0 +1,15 @@
+name: TypedefTestObjCLibrary
+description: 'Tests typedef'
+language: objc
+output: 'typedef_bindings.dart'
+exclude-all-by-default: true
+objc-interfaces:
+  include:
+    - SomeClass
+    - AnotherClass
+typedefs:
+  include:
+    - SomeClassPtr
+headers:
+  entry-points:
+    - 'typedef_test.m'

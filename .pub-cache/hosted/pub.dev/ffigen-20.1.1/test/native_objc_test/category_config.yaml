@@ -1,0 +1,25 @@
+name: CategoryTestObjCLibrary
+description: 'Tests handling Objective-C categories'
+language: objc
+output: 'category_bindings.dart'
+exclude-all-by-default: true
+objc-interfaces:
+  include:
+    - Thing
+    - ChildOfThing
+    - NSURL
+    - ChildOfNSString
+objc-categories:
+  include:
+    - Sub
+    - Mul
+    - CatImplementsProto
+    - InstanceTypeCategory
+    - InterfaceOnBuiltInType
+    - StaticAndInstanceMethodsWithSameNameCategory
+    - NSString
+headers:
+  entry-points:
+    - 'category_test.h'
+    # Include it twice, as a regression test for #353
+    - 'category_test.h'
